@@ -19,7 +19,9 @@ module.exports = defineConfig({
         browsers: config.browsers.filter(
           (b) => b.family === 'chromium' && b.name !== 'electron'
         ),
-      }
+      };
     },
+    // Add a browser setting here, for example:
+    browser: "chrome", // You can specify the browser you want to use
   },
 });
