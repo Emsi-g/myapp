@@ -5,10 +5,9 @@ phases:
       - echo Logging in to Amazon ECR....
       - aws --version
       #- $(aws ecr get-login --region ap-south-1 --no-include-email)
-      - aws ecr get-login-password --region ap-northeast-3 | docker login --username AWS --password-stdin 083341655278.dkr.ecr.ap-northeast-3.amazonaws.com
+      - aws ecr get-login-password --region ap-northeast-3 | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-3.amazonaws.com
       - # Replace with this to your repository URI
-      - REPO_NAME=mc-aws-codepipeline
-      - REPOSITORY_URI=083341655278.dkr.ecr.ap-northeast-3.amazonaws.com/mc-aws-codepipeline
+      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-3.amazonaws.com/$REPO_NAME
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
