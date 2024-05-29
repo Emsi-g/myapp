@@ -22,3 +22,11 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
+      - printf '[{"name":"image-name","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json 
+artifacts:
+  files:
+    - imagedefinitions.json
+    - appspec.yml
+    - scripts/install_dependencies.sh
+    - start_server.sh
+    - stop_server.sh
