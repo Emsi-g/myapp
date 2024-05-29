@@ -28,5 +28,5 @@ artifacts:
     - imagedefinitions.json
     - appspec.yml
     - scripts/install_dependencies.sh
-    - start_server.sh
-    - stop_server.sh
+    - scripts/start_server.sh
+    - scripts/stop_server.sh
