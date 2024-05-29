@@ -4,15 +4,7 @@ files:
   - source: /
     destination: /
 hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies.sh
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: scripts/start_server.sh
-      timeout: 300
-      runas: root
   ApplicationStart:
-    - location: scripts/stop_server.sh
+    - location: scripts/start-process.sh
       timeout: 300
       runas: root
